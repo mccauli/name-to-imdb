@@ -11,7 +11,7 @@ stremio.add("http://cinemeta.strem.io/stremioget/stremio/v1");
 //stremio.add("http://localhost:3005/stremioget/stremio/v1");
 
 // Constants
-var CACHE_TTL = 4*60*60*1000; // if we don't find an item, how long does it stay in the cache as "not found" before we retry it 
+// var CACHE_TTL = 5000; // if we don't find an item, how long does it stay in the cache as "not found" before we retry it
 var MAX_CACHE_SIZE = 20000;
 
 var GOOGLE_AJAX_API = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&q=";
@@ -113,7 +113,7 @@ function nameToImdb(args, cb) {
         if (err) return cb(err);
         if (imdb_id) {
             cache[hash] = imdb_id;
-            setTimeout(function() { delete cache[hash] }, CACHE_TTL);
+            // setTimeout(function() { delete cache[hash] }, CACHE_TTL);
         }
         cb(null, imdb_id, match);
     });
@@ -131,3 +131,4 @@ var queue = new namedQueue(function(task, cb) {
 
 module.exports = nameToImdb;
 module.exports.byImdb = byImdb;
+
