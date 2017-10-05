@@ -69,6 +69,7 @@ function webFind(task, cb) {
     var opts = {
         follow_max: 3,
         open_timeout: 15*1000,
+        proxy: task.proxy,
         headers: { "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" }
     };
 
